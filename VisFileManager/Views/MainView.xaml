@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="VisFileManager.Views.MainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:e="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:behaviors="clr-namespace:VisFileManager.Behaviors"
+             mc:Ignorable="d" 
+             xmlns:tobii="clr-namespace:Tobii.Interaction.Wpf;assembly=Tobii.Interaction.Net"
+             d:DesignHeight="300" d:DesignWidth="300">
+    <!--<UserControl.Background>
+        <RadialGradientBrush GradientOrigin="0.6,0.5">
+            <GradientStop Color="#1a5741" Offset="1"/>
+            <GradientStop Color="#248a65" Offset="0.5"/>
+        </RadialGradientBrush>
+    </UserControl.Background>-->
+    <e:Interaction.Behaviors>
+        <behaviors:ChangeBackgroundBehavior />
+        <behaviors:BlurOnRequestBehavior ClickAreaBorder="{Binding ElementName=ClickAreaWhenBlurredBorder}" BlurableGrid="{Binding ElementName=BlurableGrid}"/>
+    </e:Interaction.Behaviors>
+    <Grid>
+        
+        <Grid x:Name="BlurableGrid">
+
+            <ContentControl x:Name="MainFilesPanel" Content="{Binding MainFileViewModel}"/>
+
+            <ContentControl x:Name="TopPanel" Content="{Binding TopPanelViewModel}"/>
+
+            <ContentControl x:Name="SidePanel" Content="{Binding SidePanelViewModel}"/>
+
+        </Grid>
+
+        <Border x:Name="ClickAreaWhenBlurredBorder" Background="Black" Opacity="0.1" Visibility="Collapsed" Focusable="False" tobii:Behaviors.IsOccluder="True"/>
+
+        <ContentControl x:Name="SettingsPanel" Content="{Binding SettingsViewModel}"/>
+
+        <ContentControl x:Name="DetailsPanel" Content="{Binding DetailsViewModel}" Focusable="False"/>
+
+        <StackPanel VerticalAlignment="Center">
+            <ContentControl x:Name="ProgressBarPanelViewModel" Content="{Binding ProgressBarPanelViewModel}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>

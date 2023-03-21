@@ -1,0 +1,50 @@
+﻿<controls:GazeActivableBorder x:Class="VisFileManager.Views.FileItemListView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:behaviors="clr-namespace:VisFileManager.Behaviors"
+             xmlns:e="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:controls="clr-namespace:VisFileManager.Controls"
+             xmlns:local="clr-namespace:VisFileManager.Views"
+             xmlns:converters="clr-namespace:VisFileManager.Converters"
+             xmlns:animations="clr-namespace:VisFileManager.Animations"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" Background="#80000000"  Height="50" HorizontalAlignment="Left" BorderThickness="0,0,2,2" BorderBrush="#AA000000" Width="0" >
+    <Border.InputBindings>
+        <MouseBinding MouseAction="LeftDoubleClick" Command="{Binding OpenCommand}"/>
+        <MouseBinding MouseAction="RightClick" Command="{Binding OpenPropertiesCommand}"/>
+    </Border.InputBindings>
+    <e:Interaction.Behaviors>
+        <behaviors:ListFileItemsAppearBehavior/>
+        <behaviors:DragItemOutBehavior/>
+        <behaviors:ActivationBehavior ActivationTimeInMs="300" PrimaryKeyCommand="{Binding OpenCommand}" SecondaryKeyCommand="{Binding OpenPropertiesCommand}" RemoveKeyCommand="{Binding RemoveCommand}"/>
+    </e:Interaction.Behaviors>
+    <Grid IsHitTestVisible="False">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="120"/>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="90"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- directory image-->
+        <Image  Grid.Column="0" IsHitTestVisible="False" Visibility="{Binding IsDirectory, Converter={StaticResource bool2VisibilityConverter}}" Source="{Binding IconBig}" Stretch="Uniform" Style="{StaticResource imageHoverStyle}" Width="42" >
+            <Image.CacheMode>
+                <BitmapCache/>
+            </Image.CacheMode>
+        </Image>
+        
+         <!--file image-->
+        <Image  Grid.Column="0" IsHitTestVisible="False" Visibility="{Binding IsDirectory, Converter={StaticResource BoolToVisibilityInvertedConverter}}" Source="{Binding IconBig, IsAsync=True}" Stretch="Uniform" Style="{StaticResource imageHoverStyle}" Width="60" >
+            <Image.CacheMode>
+                <BitmapCache/>
+            </Image.CacheMode>
+        </Image>
+        <TextBlock Grid.Column="1" IsHitTestVisible="False" Text="{Binding Name}" Style="{StaticResource textblockHoverStyle}" Margin="10,0,0,0"  />
+        <TextBlock Grid.Column="2" IsHitTestVisible="False" Text="{Binding Modified, StringFormat=g, ConverterCulture=''}" Style="{StaticResource textblockHoverStyle}" Margin="10,0,0,0" />
+        <TextBlock Grid.Column="3" IsHitTestVisible="False" Text="{Binding Type, IsAsync=True}" Style="{StaticResource textblockHoverStyle}" Margin="10,0,0,0"/>
+        <TextBlock Grid.Column="4" IsHitTestVisible="False" Text="{Binding SizeInKB, IsAsync=True}" Style="{StaticResource textblockHoverStyle}" Margin="10,0,0,0"/>
+    </Grid>
+</controls:GazeActivableBorder>

@@ -1,0 +1,109 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:VisFileManager.Resources"
+                    xmlns:localViewModels="clr-namespace:VisFileManager.ViewModels"
+                    xmlns:localViewModelsDetailsPanel="clr-namespace:VisFileManager.ViewModels.DetailsPanel"
+                    xmlns:localViews="clr-namespace:VisFileManager.Views"
+                    xmlns:localViewsDetailsPanel="clr-namespace:VisFileManager.Views.DetailsPanel">
+    
+    
+    <DataTemplate DataType="{x:Type localViewModels:MainViewModel}">
+        <localViews:MainView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localViewModels:SidePanelViewModel}">
+        <localViews:SidePanelView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localViewModelsDetailsPanel:DetailsViewModel}">
+        <localViewsDetailsPanel:DetailsView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localViewModels:TopPanelViewModel}">
+        <localViews:TopPanelView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localViewModels:SettingsViewModel}">
+        <localViews:SettingsView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localViewModels:CopyProgressBottomPanelViewModel}">
+        <localViews:CopyProgressBottomPanelView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localViewModels:MainFileViewModel}">
+        <localViews:MainFileView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localViewModels:ErrorDialogViewModel}">
+        <localViews:ErrorDialogView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localViewModels:DirectoryItemViewModel}">
+        <localViews:DirectoryItemView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localViewModels:FileItemViewModel}" x:Key="fileItemViewGridStyle">
+        <localViews:FileItemGridView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localViewModels:FileItemViewModel}" x:Key="fileItemViewListStyle">
+        <localViews:FileItemListView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localViewModels:DriveItemViewModel}" x:Key="driveItemViewGridStyle">
+        <localViews:DriveItemGridView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localViewModels:DriveItemViewModel}" x:Key="driveItemViewListStyle">
+        <localViews:DriveItemListView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localViewModelsDetailsPanel:SimpleDetailsItemViewModel}" x:Key="simpleDetailsItemView">
+        <localViewsDetailsPanel:SimpleDetailsItemView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localViewModelsDetailsPanel:ComplexDetailsItemViewModel}" x:Key="complexDetailsItemView">
+        <localViewsDetailsPanel:ComplexDetailsItemView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localViewModelsDetailsPanel:DirectoryDetailsViewModel}" x:Key="directoryDetailsView">
+        <localViewsDetailsPanel:DirectoryDetailsView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localViewModelsDetailsPanel:FileDetailsViewModel}" x:Key="fileDetailsView">
+        <localViewsDetailsPanel:FileDetailsView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localViewModelsDetailsPanel:DriveDetailsViewModel}" x:Key="driveDetailsView">
+        <localViewsDetailsPanel:DriveDetailsView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localViewModelsDetailsPanel:FileDetailsSpecificImageViewModel}" x:Key="imageDetailsView">
+        <localViewsDetailsPanel:FileDetailsSpecificImageView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localViewModelsDetailsPanel:FileDetailsSpecificVideoViewModel}" x:Key="videoDetailsView">
+        <localViewsDetailsPanel:FileDetailsSpecificVideoView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localViewModelsDetailsPanel:FileDetailsSpecificAudioViewModel}" x:Key="audioDetailsView">
+        <localViewsDetailsPanel:FileDetailsSpecificAudioView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localViewModels:CreateNewItemViewModel}">
+        <localViews:CreateNewItemView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localViewModels:ThreeButtonsDialogViewModel}">
+        <localViews:ThreeButtonsDialogView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localViewModels:SearchViewModel}">
+        <localViews:SearchView/>
+    </DataTemplate>
+
+    <DataTemplate DataType="{x:Type localViewModels:ImagePreviewViewModel}">
+        <localViews:ImagePreviewView/>
+    </DataTemplate>
+</ResourceDictionary>

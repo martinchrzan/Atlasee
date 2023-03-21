@@ -1,0 +1,55 @@
+﻿<controls:GazeActivableBorder x:Class="VisFileManager.Views.DetailsPanel.SimpleDetailsItemView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:VisFileManager.Views"
+             xmlns:animations="clr-namespace:VisFileManager.Animations"
+             xmlns:e="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:behaviors="clr-namespace:VisFileManager.Behaviors"
+             xmlns:controls="clr-namespace:VisFileManager.Controls"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800" HorizontalAlignment="Right" Height="45" Margin="0,7,0,0" BorderThickness="1" x:Name="mybutton" Padding="7,7,0,7" Width="300" Background="Black">
+    <e:Interaction.Behaviors>
+        <behaviors:DetailsItemBehavior/>
+        <behaviors:ActivationBehavior ActivationTimeInMs="10" UseTemplatedParent="False" PrimaryKeyCommand="{Binding InvokeCommand}" SecondaryKeyCommand="{Binding InvokeCommand}"/>
+    </e:Interaction.Behaviors>
+    <Border.InputBindings>
+        <MouseBinding MouseAction="LeftClick" Command="{Binding InvokeCommand}"/>
+    </Border.InputBindings>
+
+    <Border.Triggers>
+        <EventTrigger RoutedEvent="MouseEnter">
+            <BeginStoryboard>
+                <Storyboard>
+                    <animations:BrushAnimation Storyboard.TargetName="mybutton" Duration="0:0:0.1" Storyboard.TargetProperty="BorderBrush" To="{StaticResource buttonBackground}"/>
+                </Storyboard>
+            </BeginStoryboard>
+
+            <BeginStoryboard>
+                <Storyboard>
+                    <animations:BrushAnimation Storyboard.TargetName="mybutton" Duration="0:0:0.1" Storyboard.TargetProperty="Background" To="{StaticResource buttonBackground2}"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+
+        <EventTrigger RoutedEvent="MouseLeave">
+            <BeginStoryboard>
+                <Storyboard>
+                    <animations:BrushAnimation Storyboard.TargetName="mybutton" Duration="0:0:0" Storyboard.TargetProperty="BorderBrush" To="Transparent"/>
+                </Storyboard>
+            </BeginStoryboard>
+
+            <BeginStoryboard>
+                <Storyboard>
+                    <animations:BrushAnimation Storyboard.TargetName="mybutton" Duration="0:0:0" Storyboard.TargetProperty="Background" To="Transparent"/>
+                </Storyboard>
+            </BeginStoryboard>
+        </EventTrigger>
+    </Border.Triggers>
+    <WrapPanel>
+        <Image Source="{Binding Icon}" Width="32" Height="32" x:Name="IconImage" Opacity="0.5" HorizontalAlignment="Left" Style="{StaticResource imageHoverStyle}"/>
+
+        <TextBlock Text="{Binding Name}" x:Name="OpenAsTextBlock" Margin="10,0,0,0" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="{StaticResource TextForegroundDarkerBrush}" Style="{StaticResource textblockHoverStyle}"/>
+    </WrapPanel>
+</controls:GazeActivableBorder>

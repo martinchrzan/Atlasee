@@ -1,0 +1,615 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.3\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props" Condition="Exists('..\packages\Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.3\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props')" />
+  <Import Project="..\packages\Microsoft.NetFramework.Analyzers.2.9.3\build\Microsoft.NetFramework.Analyzers.props" Condition="Exists('..\packages\Microsoft.NetFramework.Analyzers.2.9.3\build\Microsoft.NetFramework.Analyzers.props')" />
+  <Import Project="..\packages\Microsoft.NetCore.Analyzers.2.9.3\build\Microsoft.NetCore.Analyzers.props" Condition="Exists('..\packages\Microsoft.NetCore.Analyzers.2.9.3\build\Microsoft.NetCore.Analyzers.props')" />
+  <Import Project="..\packages\Microsoft.CodeQuality.Analyzers.2.9.3\build\Microsoft.CodeQuality.Analyzers.props" Condition="Exists('..\packages\Microsoft.CodeQuality.Analyzers.2.9.3\build\Microsoft.CodeQuality.Analyzers.props')" />
+  <Import Project="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.3\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props" Condition="Exists('..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.3\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9763DF64-6033-4EBB-9417-21DD60AEEB43}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>VisFileManager</RootNamespace>
+    <AssemblyName>Atlasee</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Stage\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Stage\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logoTransparent4.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>..\Stage\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>..\Stage\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CustomMarshalers" />
+    <Reference Include="IOExtensions, Version=1.0.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FileTransferManager.1.0.6\lib\net472\IOExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.3.3, Culture=neutral, PublicKeyToken=8985beaab7ea3f04, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft-WindowsAPICodePack-Core.1.1.3.3\lib\net452\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.3.3, Culture=neutral, PublicKeyToken=8985beaab7ea3f04, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft-WindowsAPICodePack-Shell.1.1.3.3\lib\net452\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.ShellExtensions, Version=1.1.3.3, Culture=neutral, PublicKeyToken=8985beaab7ea3f04, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft-WindowsAPICodePack-ShellExtensions.1.1.3.3\lib\net452\Microsoft.WindowsAPICodePack.ShellExtensions.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xaml.Behaviors, Version=1.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Xaml.Behaviors.Wpf.1.1.39\lib\net45\Microsoft.Xaml.Behaviors.dll</HintPath>
+    </Reference>
+    <Reference Include="NamedPipeWrapper, Version=1.5.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NamedPipeWrapper.1.5.0\lib\net40\NamedPipeWrapper.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Tobii.Interaction.Model, Version=0.7.3.333, Culture=neutral, PublicKeyToken=70326046dcdce6cb, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tobii.Interaction.0.7.3\lib\net45\Tobii.Interaction.Model.dll</HintPath>
+    </Reference>
+    <Reference Include="Tobii.Interaction.Net, Version=0.7.3.333, Culture=neutral, PublicKeyToken=70326046dcdce6cb, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tobii.Interaction.0.7.3\lib\net45\Tobii.Interaction.Net.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="Animations\BorderThicknessAnimation.cs" />
+    <Compile Include="Animations\BrushAnimation.cs" />
+    <Compile Include="Animations\CornerRadiusAnimation.cs" />
+    <Compile Include="Animations\GridLengthAnimation.cs" />
+    <Compile Include="Behaviors\ActivationBehavior.cs" />
+    <Compile Include="Behaviors\BlurOnRequestBehavior.cs" />
+    <Compile Include="Behaviors\ButtonWithBorderPopupBehavior.cs" />
+    <Compile Include="Behaviors\ChangeBackgroundBehavior.cs" />
+    <Compile Include="Behaviors\ClearFocusOnClickBehavior.cs" />
+    <Compile Include="Behaviors\DetailsItemBehavior.cs" />
+    <Compile Include="Behaviors\DetailsMenuBehavior.cs" />
+    <Compile Include="Behaviors\DialogBehavior.cs" />
+    <Compile Include="Behaviors\DragAndDropBehavior.cs" />
+    <Compile Include="Behaviors\DragItemOutBehavior.cs" />
+    <Compile Include="Behaviors\EditOnRequestBehavior.cs" />
+    <Compile Include="Behaviors\ExpandSearchFieldBehavior.cs" />
+    <Compile Include="Behaviors\GalleryCacheBehavior.cs" />
+    <Compile Include="Behaviors\GalleryCacheProvider.cs" />
+    <Compile Include="Behaviors\GallerySlideshowBehavior.cs" />
+    <Compile Include="Behaviors\GlobalKeyBindingBehavior.cs" />
+    <Compile Include="Behaviors\GridFileItemsAppearBehavior.cs" />
+    <Compile Include="Behaviors\ImageGalleryThumbnailAppearBehavior.cs" />
+    <Compile Include="Behaviors\ItemsControlParentProvider.cs" />
+    <Compile Include="Behaviors\ItemsStyleChangerBehavior.cs" />
+    <Compile Include="Behaviors\KeyBindingsBehavior.cs" />
+    <Compile Include="Behaviors\ListBoxFocusBehavior.cs" />
+    <Compile Include="Behaviors\ListFileItemsAppearBehavior.cs" />
+    <Compile Include="Behaviors\MainImageBehavior.cs" />
+    <Compile Include="Behaviors\MainWindowBehavior.cs" />
+    <Compile Include="Behaviors\OpenBorderBehavior.cs" />
+    <Compile Include="Behaviors\OpenToRequestedNumberOfItemsAnimation.cs" />
+    <Compile Include="Behaviors\ScrollInGazeDirection.cs" />
+    <Compile Include="Behaviors\ScrollToTopBehavior.cs" />
+    <Compile Include="Behaviors\SelectAllOnClickTextBoxBehavior.cs" />
+    <Compile Include="Behaviors\StackPanelResize.cs" />
+    <Compile Include="Behaviors\ValidationTextBoxBehavior.cs" />
+    <Compile Include="Bootstraper.cs" />
+    <Compile Include="Common\RangeObservableCollection.cs" />
+    <Compile Include="Controls\DetailsItemSubMenuList.xaml.cs">
+      <DependentUpon>DetailsItemSubMenuList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\GazeActivableBorder.cs" />
+    <Compile Include="Controls\GazeActivableButton.cs" />
+    <Compile Include="Controls\LoadingIndicator.cs" />
+    <Compile Include="Controls\VirtualizingWrapPanel.cs" />
+    <Compile Include="Controls\ZoomBorder.cs" />
+    <Compile Include="Converters\BoolToVisibilityInvertedConverter.cs" />
+    <Compile Include="Converters\NumberOfItemsToVisibilityConverter.cs" />
+    <Compile Include="Converters\PathToFileNameOnlyConverter.cs" />
+    <Compile Include="Converters\PathToThumbnailConverter.cs" />
+    <Compile Include="Converters\ToLowResImageConverter.cs" />
+    <Compile Include="DataTemplateSelectors\DetailsActionItemDataTemplateSelector.cs" />
+    <Compile Include="DataTemplateSelectors\DetailsItemDataTemplateSelector.cs" />
+    <Compile Include="Converters\EnumToBoolConverter.cs" />
+    <Compile Include="DataTemplateSelectors\GridViewItemDataTemplateSelector.cs" />
+    <Compile Include="DataTemplateSelectors\ListViewItemDataTemplateSelector.cs" />
+    <Compile Include="Converters\PercentageToHeightConverter.cs" />
+    <Compile Include="DataTemplateSelectors\SpecificFileTypeDetailsTemplateSelector.cs" />
+    <Compile Include="Converters\StringEmptyConverter.cs" />
+    <Compile Include="Controls\CustomMainWindow.cs" />
+    <Compile Include="Extensions\SortingExtensions.cs" />
+    <Compile Include="EyetrackerManager.cs" />
+    <Compile Include="EyetrackerMemoryLeakCleanerHack.cs" />
+    <Compile Include="FileSystemHelpers\ClipboardManager.cs" />
+    <Compile Include="FileSystemHelpers\DirectoriesToParentRemovalMonitor.cs" />
+    <Compile Include="FileSystemHelpers\DirectoryChangesNotifier.cs" />
+    <Compile Include="FileSystemHelpers\DiskDriveChangeMonitor.cs" />
+    <Compile Include="Enums\PublicEnums.cs" />
+    <Compile Include="Extensions\DriveInfoExtensions.cs" />
+    <Compile Include="FileSystemHelpers\FileOperationsManager.cs" />
+    <Compile Include="FileSystemHelpers\IClipboardManager.cs" />
+    <Compile Include="FileSystemHelpers\IDirectoriesToParentRemovalMonitor.cs" />
+    <Compile Include="FileSystemHelpers\IFileOperationsManager.cs" />
+    <Compile Include="FileSystemHelpers\INewItemsCreator.cs" />
+    <Compile Include="FileSystemHelpers\IpcMessageProcessor.cs" />
+    <Compile Include="FileSystemHelpers\NewItemsCreator.cs" />
+    <Compile Include="FileSystemHelpers\SafeFilesEnumerator.cs" />
+    <Compile Include="GalleryViewWindow.xaml.cs">
+      <DependentUpon>GalleryViewWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="Helpers\ActivationInfoProvider.cs" />
+    <Compile Include="Helpers\ApplicationInfoProvider.cs" />
+    <Compile Include="Helpers\Background.cs" />
+    <Compile Include="Helpers\BackgroundManager.cs" />
+    <Compile Include="Helpers\BitmapHelpers.cs" />
+    <Compile Include="Helpers\DelayedActionInvoker.cs" />
+    <Compile Include="Helpers\DialogHelper.cs" />
+    <Compile Include="Helpers\DispatcherTaskScheduler.cs" />
+    <Compile Include="Helpers\FileInfoHelper.cs" />
+    <Compile Include="Helpers\IBackgroundManager.cs" />
+    <Compile Include="Helpers\IDialogHelper.cs" />
+    <Compile Include="Helpers\IDispatcherTaskScheduler.cs" />
+    <Compile Include="Helpers\IInvokeHelper.cs" />
+    <Compile Include="Helpers\InvokeHelper.cs" />
+    <Compile Include="Extensions\UpdatePropertySourceWhenEnterPressedExtension.cs" />
+    <Compile Include="Helpers\IThrottledActionInvoker.cs" />
+    <Compile Include="Helpers\IThrottledActionInvokerFactory.cs" />
+    <Compile Include="Helpers\ResourcesProvider.cs" />
+    <Compile Include="Helpers\ThrottledActionInvokerFactory.cs" />
+    <Compile Include="Helpers\WindowsThumbnailProvider.cs" />
+    <Compile Include="Helpers\WpfUtilities.cs" />
+    <Compile Include="HistoryManager.cs" />
+    <Compile Include="HistoryProvider.cs" />
+    <Compile Include="FileSystemHelpers\IDirectoryChangesNotifier.cs" />
+    <Compile Include="FileSystemHelpers\IDiskDriveChangeMonitor.cs" />
+    <Compile Include="FileSystemHelpers\ItemChangedInfo.cs" />
+    <Compile Include="IHistoryManager.cs" />
+    <Compile Include="Messenger\IMessenger.cs" />
+    <Compile Include="Messenger\ISubscription.cs" />
+    <Compile Include="Messenger\MessageIds.cs" />
+    <Compile Include="Messenger\Messages\BlurBackgroundMessage.cs" />
+    <Compile Include="Messenger\Messages\DetailsItemHoveredMessage.cs" />
+    <Compile Include="Messenger\Messages\DragAndDropMessage.cs" />
+    <Compile Include="Messenger\Messages\EyetrackingTriggersMessage.cs" />
+    <Compile Include="Messenger\Messages\OpenFileDetailsMessage.cs" />
+    <Compile Include="Messenger\Messages\SortingRequest.cs" />
+    <Compile Include="Messenger\Messenger.cs" />
+    <Compile Include="Messenger\Subscription.cs" />
+    <Compile Include="Settings\IUserSettings.cs" />
+    <Compile Include="Settings\SettingItem.cs" />
+    <Compile Include="Settings\UserSettings.cs" />
+    <Compile Include="Validators\FileNameValidator.cs" />
+    <Compile Include="Validators\FormattedPath.cs" />
+    <Compile Include="FileSystemHelpers\GlobalFileManager.cs" />
+    <Compile Include="Extensions\OpacityExtension.cs" />
+    <Compile Include="Helpers\TaskHelper.cs" />
+    <Compile Include="FileSystemHelpers\IGlobalFileManager.cs" />
+    <Compile Include="Extensions\FormattedPathExtensions.cs" />
+    <Compile Include="Validators\KnownNamesProvider.cs" />
+    <Compile Include="Validators\PathValidationRule.cs" />
+    <Compile Include="Validators\PathValidator.cs" />
+    <Compile Include="ViewModelContracts\DetailsPanel\IComplexDetailsItemViewModel.cs" />
+    <Compile Include="ViewModelContracts\DetailsPanel\IDetailsItemViewModel.cs" />
+    <Compile Include="ViewModelContracts\DetailsPanel\IDetailsViewModel.cs" />
+    <Compile Include="ViewModelContracts\DetailsPanel\IDetailsViewModelBase.cs" />
+    <Compile Include="ViewModelContracts\DetailsPanel\IDirectoryDetailsViewModel.cs" />
+    <Compile Include="ViewModelContracts\ICopyProgressBottomPanelViewModel.cs" />
+    <Compile Include="ViewModelContracts\ICreateNewItemViewModel.cs" />
+    <Compile Include="ViewModelContracts\IDirectoryItemViewModel.cs" />
+    <Compile Include="ViewModelContracts\DetailsPanel\IDriveDetailsViewModel.cs" />
+    <Compile Include="ViewModelContracts\IDriveItemViewModel.cs" />
+    <Compile Include="ViewModelContracts\IErrorDialogViewModel.cs" />
+    <Compile Include="ViewModelContracts\IFileAndDriveItemViewModelBase.cs" />
+    <Compile Include="ViewModelContracts\DetailsPanel\IFileDetailsSpecificAudioViewModel.cs" />
+    <Compile Include="ViewModelContracts\DetailsPanel\IFileDetailsSpecificImageViewModel.cs" />
+    <Compile Include="ViewModelContracts\DetailsPanel\IFileDetailsSpecificMediaViewModelBase.cs" />
+    <Compile Include="ViewModelContracts\DetailsPanel\IFileDetailsSpecificVideoViewModel.cs" />
+    <Compile Include="ViewModelContracts\DetailsPanel\IFileDetailsViewModel.cs" />
+    <Compile Include="ViewModelContracts\IFileItemViewModel.cs" />
+    <Compile Include="ViewModelContracts\IImagePreviewItemViewModel.cs" />
+    <Compile Include="ViewModelContracts\IImagePreviewViewModel.cs" />
+    <Compile Include="ViewModelContracts\IMainFileViewModel.cs" />
+    <Compile Include="ViewModelContracts\IMainViewModel.cs" />
+    <Compile Include="ViewModelContracts\ISearchViewModel.cs" />
+    <Compile Include="ViewModelContracts\ISettingsViewModel.cs" />
+    <Compile Include="ViewModelContracts\ISidePanelViewModel.cs" />
+    <Compile Include="ViewModelContracts\DetailsPanel\ISimpleDetailsItemViewModel.cs" />
+    <Compile Include="ViewModelContracts\DetailsPanel\ISpecificFileDetailsViewModel.cs" />
+    <Compile Include="ViewModelContracts\IThreeButtonsDialogViewModel.cs" />
+    <Compile Include="ViewModelContracts\ITopPanelViewModel.cs" />
+    <Compile Include="ViewModelFactories\DetailsPanel\DetailsItemViewModelFactory.cs" />
+    <Compile Include="ViewModelFactories\DirectoryItemViewModelFactory.cs" />
+    <Compile Include="ViewModelFactories\DetailsPanel\FileAndDirectoryDetailsViewModelFactory.cs" />
+    <Compile Include="ViewModelFactories\FileItemViewModelFactory.cs" />
+    <Compile Include="ViewModelFactories\DetailsPanel\IDetailsItemViewModelFactory.cs" />
+    <Compile Include="ViewModelFactories\IDirectoryItemViewModelFactory.cs" />
+    <Compile Include="ViewModelFactories\DetailsPanel\IFileAndDirectoryDetailsViewModelFactory.cs" />
+    <Compile Include="ViewModelFactories\IFileItemViewModelFactory.cs" />
+    <Compile Include="ViewModelFactories\DetailsPanel\ISpecificFileDetailsViewModelFactory.cs" />
+    <Compile Include="ViewModelFactories\DetailsPanel\SpecificFileDetailsViewModelFactory.cs" />
+    <Compile Include="ViewModelFactories\IImagePreviewItemViewModelFactory.cs" />
+    <Compile Include="ViewModelFactories\ImagePreviewItemViewModelFactory.cs" />
+    <Compile Include="ViewModels\CopyProgressBottomPanelViewModel.cs" />
+    <Compile Include="ViewModels\CreateNewItemViewModel.cs" />
+    <Compile Include="ViewModels\DetailsPanel\ComplexDetailsItemViewModel.cs" />
+    <Compile Include="ViewModels\DetailsPanel\DetailsViewModel.cs" />
+    <Compile Include="ViewModels\DetailsPanel\DetailsViewModelBase.cs" />
+    <Compile Include="ViewModels\DetailsPanel\DirectoryDetailsViewModel.cs" />
+    <Compile Include="ViewModels\DirectoryItemViewModel.cs" />
+    <Compile Include="ViewModels\DetailsPanel\DriveDetailsViewModel.cs" />
+    <Compile Include="ViewModels\DriveItemViewModel.cs" />
+    <Compile Include="ViewModels\DetailsPanel\FileDetailsSpecificAudioViewModel.cs" />
+    <Compile Include="ViewModels\DetailsPanel\FileDetailsSpecificBaseViewModel.cs" />
+    <Compile Include="ViewModels\DetailsPanel\FileDetailsSpecificImageViewModel.cs" />
+    <Compile Include="ViewModels\DetailsPanel\FileDetailsSpecificVideoViewModel.cs" />
+    <Compile Include="ViewModels\DetailsPanel\FileDetailsViewModel.cs" />
+    <Compile Include="ViewModels\ErrorDialogViewModel.cs" />
+    <Compile Include="ViewModels\FileItemViewModel.cs" />
+    <Compile Include="ViewModels\ImagePreviewItemViewModel.cs" />
+    <Compile Include="ViewModels\ImagePreviewViewModel.cs" />
+    <Compile Include="ViewModels\MainFileViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\SearchViewModel.cs" />
+    <Compile Include="ViewModels\SettingsViewModel.cs" />
+    <Compile Include="ViewModels\SidePanelViewModel.cs" />
+    <Compile Include="ViewModels\DetailsPanel\SimpleDetailsItemViewModel.cs" />
+    <Compile Include="ViewModels\ThreeButtonsDialogViewModel.cs" />
+    <Compile Include="ViewModels\TopPanelViewModel.cs" />
+    <Compile Include="Views\BottomPanelView.cs">
+      <DependentUpon>CopyProgressBottomPanelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CreateNewItemView.xaml.cs">
+      <DependentUpon>CreateNewItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailsPanel\ComplexDetailsItemView.xaml.cs">
+      <DependentUpon>ComplexDetailsItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailsPanel\DetailsView.xaml.cs">
+      <DependentUpon>DetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailsPanel\DirectoryDetailsView.xaml.cs">
+      <DependentUpon>DirectoryDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DirectoryItemView.xaml.cs">
+      <DependentUpon>DirectoryItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailsPanel\DriveDetailsView.xaml.cs">
+      <DependentUpon>DriveDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DriveItemGridView.xaml.cs">
+      <DependentUpon>DriveItemGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DriveItemListView.xaml.cs">
+      <DependentUpon>DriveItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailsPanel\FileDetailsSpecificAudioView.xaml.cs">
+      <DependentUpon>FileDetailsSpecificAudioView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailsPanel\FileDetailsSpecificImageView.xaml.cs">
+      <DependentUpon>FileDetailsSpecificImageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailsPanel\FileDetailsSpecificVideoView.xaml.cs">
+      <DependentUpon>FileDetailsSpecificVideoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailsPanel\FileDetailsView.xaml.cs">
+      <DependentUpon>FileDetailsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ErrorDialogView.xaml.cs">
+      <DependentUpon>ErrorDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FileItemGridView.xaml.cs">
+      <DependentUpon>FileItemGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\FileItemListView.xaml.cs">
+      <DependentUpon>FileItemListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ImagePreviewView.xaml.cs">
+      <DependentUpon>ImagePreviewView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainFileView.xaml.cs">
+      <DependentUpon>MainFileView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MainView.xaml.cs">
+      <DependentUpon>MainView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SearchView.xaml.cs">
+      <DependentUpon>SearchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsView.xaml.cs">
+      <DependentUpon>SettingsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SidePanelView.xaml.cs">
+      <DependentUpon>SidePanelView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\DetailsPanel\SimpleDetailsItemView.cs">
+      <DependentUpon>SimpleDetailsItemView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ThreeButtonsDialogView.cs">
+      <DependentUpon>ThreeButtonsDialogView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TopPanelView.xaml.cs">
+      <DependentUpon>TopPanelView.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Controls\DetailsItemSubMenuList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GalleryViewWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Common\RelayCommand.cs" />
+    <Compile Include="Common\ViewModelBase.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Resources\Controls.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\Styles.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Resources\ViewModelViewMapping.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\ErrorDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ImagePreviewView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SearchView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ThreeButtonsDialogView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CopyProgressBottomPanelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CreateNewItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DetailsPanel\ComplexDetailsItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DetailsPanel\DetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DetailsPanel\DirectoryDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DirectoryItemView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DetailsPanel\DriveDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DriveItemGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DriveItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DetailsPanel\FileDetailsSpecificAudioView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DetailsPanel\FileDetailsSpecificImageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DetailsPanel\FileDetailsSpecificVideoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DetailsPanel\FileDetailsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\FileItemGridView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\FileItemListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainFileView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\MainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingsView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SidePanelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\DetailsPanel\SimpleDetailsItemView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\TopPanelView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\VisFileManager.Shared\VisFileManager.Shared.csproj">
+      <Project>{6390dcc3-2281-40b2-9786-438a8ba3d6e6}</Project>
+      <Name>VisFileManager.Shared</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Backgrounds\defaultBackground.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="logoTransparent4.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Analyzer Include="..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.3\analyzers\dotnet\Microsoft.CodeAnalysis.VersionCheckAnalyzer.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeQuality.Analyzers.2.9.3\analyzers\dotnet\cs\Humanizer.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeQuality.Analyzers.2.9.3\analyzers\dotnet\cs\Microsoft.CodeQuality.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.CodeQuality.Analyzers.2.9.3\analyzers\dotnet\cs\Microsoft.CodeQuality.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.NetCore.Analyzers.2.9.3\analyzers\dotnet\cs\Microsoft.NetCore.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.NetCore.Analyzers.2.9.3\analyzers\dotnet\cs\Microsoft.NetCore.CSharp.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.3\analyzers\dotnet\cs\Microsoft.NetFramework.Analyzers.dll" />
+    <Analyzer Include="..\packages\Microsoft.NetFramework.Analyzers.2.9.3\analyzers\dotnet\cs\Microsoft.NetFramework.CSharp.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Backgrounds\greenBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Backgrounds\grayBackground.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Tobii.Interaction.0.7.3\build\Tobii.Interaction.targets" Condition="Exists('..\packages\Tobii.Interaction.0.7.3\build\Tobii.Interaction.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Tobii.Interaction.0.7.3\build\Tobii.Interaction.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Tobii.Interaction.0.7.3\build\Tobii.Interaction.targets'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.3\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeAnalysis.VersionCheckAnalyzer.2.9.3\build\Microsoft.CodeAnalysis.VersionCheckAnalyzer.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeQuality.Analyzers.2.9.3\build\Microsoft.CodeQuality.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeQuality.Analyzers.2.9.3\build\Microsoft.CodeQuality.Analyzers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.NetCore.Analyzers.2.9.3\build\Microsoft.NetCore.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NetCore.Analyzers.2.9.3\build\Microsoft.NetCore.Analyzers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.NetFramework.Analyzers.2.9.3\build\Microsoft.NetFramework.Analyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.NetFramework.Analyzers.2.9.3\build\Microsoft.NetFramework.Analyzers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.3\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeAnalysis.FxCopAnalyzers.2.9.3\build\Microsoft.CodeAnalysis.FxCopAnalyzers.props'))" />
+  </Target>
+</Project>

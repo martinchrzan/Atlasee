@@ -1,0 +1,47 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisFileManager", "VisFileManager\VisFileManager.csproj", "{9763DF64-6033-4EBB-9417-21DD60AEEB43}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisFileManager.Tests", "VisFileManager.Tests\VisFileManager.Tests.csproj", "{FF9237E6-D672-4012-85DB-60D8A62656A3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0B93D86F-CDFB-433B-8050-CA40E8AFC50F}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisFileManager.ElevatedOperations", "VisFileManager.ElevatedOperations\VisFileManager.ElevatedOperations.csproj", "{81536B41-C004-4FED-AC85-4E535EA0473A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VisFileManager.Shared", "VisFileManager.Shared\VisFileManager.Shared.csproj", "{6390DCC3-2281-40B2-9786-438A8BA3D6E6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9763DF64-6033-4EBB-9417-21DD60AEEB43}.Debug|x64.ActiveCfg = Debug|x64
+		{9763DF64-6033-4EBB-9417-21DD60AEEB43}.Debug|x64.Build.0 = Debug|x64
+		{9763DF64-6033-4EBB-9417-21DD60AEEB43}.Release|x64.ActiveCfg = Release|x64
+		{9763DF64-6033-4EBB-9417-21DD60AEEB43}.Release|x64.Build.0 = Release|x64
+		{FF9237E6-D672-4012-85DB-60D8A62656A3}.Debug|x64.ActiveCfg = Debug|x64
+		{FF9237E6-D672-4012-85DB-60D8A62656A3}.Debug|x64.Build.0 = Debug|x64
+		{FF9237E6-D672-4012-85DB-60D8A62656A3}.Release|x64.ActiveCfg = Release|x64
+		{81536B41-C004-4FED-AC85-4E535EA0473A}.Debug|x64.ActiveCfg = Debug|x64
+		{81536B41-C004-4FED-AC85-4E535EA0473A}.Debug|x64.Build.0 = Debug|x64
+		{81536B41-C004-4FED-AC85-4E535EA0473A}.Release|x64.ActiveCfg = Release|x64
+		{81536B41-C004-4FED-AC85-4E535EA0473A}.Release|x64.Build.0 = Release|x64
+		{6390DCC3-2281-40B2-9786-438A8BA3D6E6}.Debug|x64.ActiveCfg = Debug|x64
+		{6390DCC3-2281-40B2-9786-438A8BA3D6E6}.Debug|x64.Build.0 = Debug|x64
+		{6390DCC3-2281-40B2-9786-438A8BA3D6E6}.Release|x64.ActiveCfg = Release|x64
+		{6390DCC3-2281-40B2-9786-438A8BA3D6E6}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {76A7C44D-29F6-4C92-85E3-CC2D8ED2E340}
+	EndGlobalSection
+EndGlobal
