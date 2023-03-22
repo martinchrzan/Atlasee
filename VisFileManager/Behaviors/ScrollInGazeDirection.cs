@@ -15,7 +15,7 @@ namespace VisFileManager.Behaviors
         private EyetrackerManager _eyetrackerManager;
         private FixationDataStream _stream;
         private double _lastY;
-
+        private bool _streamConnected = false;
 
         public static DependencyProperty VerticalOffsetProperty =
          DependencyProperty.RegisterAttached("VerticalOffset",
@@ -55,15 +55,21 @@ namespace VisFileManager.Behaviors
         {
             AssociatedObject.Unloaded -= AssociatedObject_Unloaded;
             AssociatedObject.Loaded -= AssociatedObject_Loaded;
-            _stream.Next -= _stream_Next;
+            if (_streamConnected == true)
+            {
+                _stream.Next -= _stream_Next;
+            }
         }
 
         private void AssociatedObject_Loaded(object sender, RoutedEventArgs e)
         {
             _eyetrackerManager = Bootstraper.EyetrackerManager;
-
-            _stream = _eyetrackerManager.Host.Streams.CreateFixationDataStream(Tobii.Interaction.Framework.FixationDataMode.Sensitive);
-            _stream.Next += _stream_Next;
+            if (_eyetrackerManager.Host.Context.ConnectionState == Tobii.Interaction.Client.ConnectionState.Connected)
+            {
+                _stream = _eyetrackerManager.Host.Streams.CreateFixationDataStream(Tobii.Interaction.Framework.FixationDataMode.Sensitive);
+                _stream.Next += _stream_Next;
+                _streamConnected = true;
+            }
 
             var messenger = Bootstraper.Container.GetExportedValue<IMessenger>();
             messenger.Subscribe<bool>(MessageIds.ScrollRequestMessage, (a) =>

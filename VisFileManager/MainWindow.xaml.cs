@@ -1,7 +1,6 @@
 ﻿using System;
 using System.ComponentModel.Composition;
 using VisFileManager.Controls;
-using VisFileManager.Helpers;
 using VisFileManager.Shared;
 using VisFileManager.ViewModelContracts;
 

@@ -90,7 +90,7 @@
                 <TextBlock Text="About" FontSize="18" Margin="40,0,0,15" Foreground="{StaticResource TextForegroundDarkerBrush}" HorizontalAlignment="Left" FontWeight="SemiBold" />
                 <Rectangle Height="1" Margin="30,0,0,10" HorizontalAlignment="Stretch" Fill="{StaticResource separatorBrush}" />
                 <TextBlock Margin="40,10,0,0" Text="{Binding ApplicationVersion, StringFormat=Version: {0}}" FontSize="15" Foreground="{StaticResource TextForegroundDarkerBrush}" />
-                <TextBlock Margin="40,10,0,0" Text="Martin Chrzan © 2019-2020" FontSize="15" Foreground="{StaticResource TextForegroundDarkerBrush}" />
+                <TextBlock Margin="40,10,0,0" Text="Martin Chrzan © 2019-2023" FontSize="15" Foreground="{StaticResource TextForegroundDarkerBrush}" />
             </StackPanel>
             </ScrollViewer>
         </Border>

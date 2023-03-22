@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
+using System.Diagnostics;
 using System.IO;
-using System.Linq;
 using System.Runtime;
-using System.Threading.Tasks;
 using System.Windows;
 using VisFileManager.Shared;
 
@@ -36,6 +32,12 @@ namespace VisFileManager
                 var ex = e.ExceptionObject as Exception;
                 Logger.LogError(Message, ex);
             }
+        }
+
+        protected override void OnExit(ExitEventArgs e)
+        {
+            base.OnExit(e);
+            Process.GetCurrentProcess().Kill();
         }
     }
 }
